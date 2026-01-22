@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashif Iqbal Abbasi | Senior Product Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        // Check for saved theme or system preference
+        if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+        
+        .dark body { background-color: #0a0a0a; color: #ffffff; }
+        body { background-color: #ffffff; color: #000000; }
+
+        ::selection {
+            background-color: rgba(255, 255, 255, 0.99);
+            color: #000;
+        }
+        .dark ::selection {
+            background-color: rgba(255, 255, 255, 0.99);
+            color: #000;
+        }
+        
+        .text-huge {
+            font-size: clamp(2rem, 10vw, 10rem);
+            line-height: 0.82;
+            letter-spacing: -0.05em;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        .dark ::-webkit-scrollbar-thumb { background: #333; }
+        ::-webkit-scrollbar-thumb { background: #ccc; }
+
+        /* Hero Animations */
+        @keyframes reveal {
+            from {
+                clip-path: inset(100% 0 0 0);
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                clip-path: inset(0% 0 0 0);
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .reveal-text {
+            animation: reveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            opacity: 0;
+            display: inline-block;
+        }
+
+        .reveal-delay-1 { animation-delay: 0.1s; }
+        .reveal-delay-2 { animation-delay: 0.2s; }
+        .reveal-delay-3 { animation-delay: 0.3s; }
+
+        /* Fixed the invisible text on hover bug by ensuring solid stroke color */
+        .text-outline-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        
+        /* Apply solid stroke based on current theme */
+        .text-outline-hover:hover {
+            color: transparent !important;
+        }
+        
+        .dark .text-outline-hover:hover {
+            -webkit-text-stroke: 1.5px #ffffff;
+        }
+        
+        .text-outline-hover:hover {
+            -webkit-text-stroke: 1.5px #000000;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax Image Container */
+        .parallax-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        .parallax-img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .group:hover .parallax-img {
+            transform: scale(1.03);
+        }
+
+        /* Responsive spacing utilities */
+        .section-padding {
+            padding-top: clamp(3rem, 10vh, 10rem);
+            padding-bottom: clamp(3rem, 10vh, 10rem);
+        }
+        
+        /* Mobile fixes */
+        @media (max-width: 640px) {
+            .text-huge {
+                font-size: clamp(2.5rem, 14vw, 4rem);
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+<body class="antialiased">
+    <div id="root"></div>
+</body>
+</html>
